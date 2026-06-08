@@ -4,27 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แม่สูตรคูณ (While Loop)</title>
+    <style>
+        body { margin: 30px; }
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #999; padding: 8px 30px; text-align: center; }
+    </style>
 </head>
 <body>
-    <h2>โปรแกรมคำนวณแม่สูตรคูณ (While Loop)</h1>
-    <a href="index.php" style='color:blue'>For Loop</a><br>
-    <a href="while.php" style='color:green'>While Loop</a>
+
+    <h2>โปรแกรมคำนวณแม่สูตรคูณ (While Loop)</h2>
+    <a href="index.php" style="color:blue">For Loop</a> :
+    <a href="while.php" style="color:green">While Loop</a>
+
     <form action="">
-        <label for="">กรอกแม่สูตรคูณ</label>
+        <label for="">กรอกแม่สูตรคูณ :</label>
         <input type="number" name="num1" id="">
         <input type="submit" value="คำนวณ">
     </form>
 
-    <?php 
-        if(isset($_GET["num1"])){
+    <?php if (isset($_GET["num1"])) : ?>
+        <?php
             $num1 = $_GET["num1"];
-            echo "สูตรคูณแม่ ". $num1 . "<br>"; 
             $i = 1;
-            while ($i <= 12) {
-                echo $num1 . " x " . $i . " = " .$num1*$i . "<br>";
-                $i++;
-            }
-        }
-    ?>
+        ?>
+
+        <h3>สูตรคูณแม่ <?= $num1 ?></h3>
+
+        <table>
+            <tr>
+                <th>สูตร</th>
+                <th>ผลลัพธ์</th>
+            </tr>
+            <?php while ($i <= 12) : ?>
+            <tr>
+                <td><?= $num1 ?> x <?= $i ?></td>
+                <td><?= $num1 * $i ?></td>
+            </tr>
+            <?php $i++; endwhile; ?>
+        </table>
+
+    <?php endif; ?>
+
 </body>
 </html>
